@@ -5,7 +5,7 @@ SRCDIR = src
 OBJDIR = obj
 BINDIR = bin
 
-SOURCES = $(wildcard $(SRCDIR)/*.cpp)
+SOURCES = $(SRCDIR)/main.cpp $(SRCDIR)/ZadKcpp.cpp
 OBJECTS = $(SOURCES:$(SRCDIR)/%.cpp=$(OBJDIR)/%.o)
 EXECUTABLE = main
 
