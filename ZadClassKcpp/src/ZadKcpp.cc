@@ -207,6 +207,4 @@ void ZadKcpp::zadanie5_1() {
     std::cout << "Sprawdzenie za pomocą operacji bitowej: " << (czyParzystaBitwise(liczba) ? "parzysta" : "nieparzysta") << std::endl;
     std::cout << "Sprawdzenie za pomocą operatora modulo: " << (czyParzystaModulo(liczba) ? "parzysta" : "nieparzysta") << std::endl;
     std::cout << "Sprawdzenie za pomocą operatora warunkowego: " << (czyParzystaTernary(liczba) ? "parzysta" : "nieparzysta") << std::endl;
-
-    return 0;
 }
