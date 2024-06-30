@@ -3,18 +3,11 @@
 
 class ZadKcpp {
 public:
-
-
-
-void zadanie_1();
-void zadanie_2();
-void zadanie_3();
-void zadanie_4();
-void zadanie_5();
+    void zadanie1_1();
+    void zadanie2_1();
+    void zadanie3_1();
+    void zadanie4_1();
+    void zadanie5_1();
 };
-int main() {
-
-    return 0;
-}
 
 #endif // ZADKCPP_H
