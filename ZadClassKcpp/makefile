@@ -1,29 +1,23 @@
-# Compiler
 CXX = g++
+CXXFLAGS = -Iinclude -std=c++11
 
-# Compiler flags
-CXXFLAGS = -std=c++11 -Iinclude
+SRCDIR = src
+OBJDIR = obj
+BINDIR = bin
 
-# Target executable
-TARGET = ZadClassKcpp
+SOURCES = $(wildcard $(SRCDIR)/*.cpp)
+OBJECTS = $(SOURCES:$(SRCDIR)/%.cpp=$(OBJDIR)/%.o)
+EXECUTABLE = main
 
-# Source files
-SRCS = main.cpp src/ZadKcpp.cpp
+all: $(BINDIR)/$(EXECUTABLE)
 
-# Object files
-OBJS = $(SRCS:.cpp=.o)
+$(BINDIR)/$(EXECUTABLE): $(OBJECTS)
+	mkdir -p $(BINDIR)
+	$(CXX) $(OBJECTS) -o $@
 
-# Default rule
-all: $(TARGET)
-
-# Rule to link the object files into the final executable
-$(TARGET): $(OBJS)
-	$(CXX) $(OBJS) -o $(TARGET)
-
-# Rule to compile source files into object files
-%.o: %.cpp
+$(OBJDIR)/%.o: $(SRCDIR)/%.cpp
+	mkdir -p $(OBJDIR)
 	$(CXX) $(CXXFLAGS) -c $< -o $@
 
-# Clean up the build files
 clean:
-	rm -f $(OBJS) $(TARGET)
+	rm -rf $(OBJDIR) $(BINDIR)
