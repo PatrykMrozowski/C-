@@ -1,23 +1,40 @@
+# Kompilator C++
 CXX = g++
-CXXFLAGS = -Iinclude -std=c++11
 
+# Flagi kompilatora
+CXXFLAGS = -std=c++11 -Wall
+
+# Katalogi projektu
 SRCDIR = src
-OBJDIR = obj
+INCDIR = include
 BINDIR = bin
+OBJDIR = obj
 
-SOURCES = $(SRCDIR)/main.cpp $(SRCDIR)/ZadKcpp.cpp
-OBJECTS = $(SOURCES:$(SRCDIR)/%.cpp=$(OBJDIR)/%.o)
-EXECUTABLE = main
+# Lista plików źródłowych
+SOURCES = $(wildcard $(SRCDIR)/*.cpp)
 
-all: $(BINDIR)/$(EXECUTABLE)
+# Lista plików obiektowych
+OBJECTS = $(patsubst $(SRCDIR)/%.cpp,$(OBJDIR)/%.o,$(SOURCES))
 
-$(BINDIR)/$(EXECUTABLE): $(OBJECTS)
-	mkdir -p $(BINDIR)
-	$(CXX) $(OBJECTS) -o $@
+# Nazwa pliku wykonywalnego
+TARGET = $(BINDIR)/main
 
+# Domyślne zadanie (kompilacja i uruchomienie)
+all: $(TARGET)
+
+# Zależności plików obiektowych od plików źródłowych
 $(OBJDIR)/%.o: $(SRCDIR)/%.cpp
-	mkdir -p $(OBJDIR)
-	$(CXX) $(CXXFLAGS) -c $< -o $@
+    @mkdir -p $(OBJDIR)
+    $(CXX) $(CXXFLAGS) -I$(INCDIR) -c $< -o $@
 
+# Kompilacja programu
+$(TARGET): $(OBJECTS)
+    @mkdir -p $(BINDIR)
+    $(CXX) $(CXXFLAGS) $^ -o $(TARGET)
+
+# Czyszczenie plików tymczasowych i wynikowych
 clean:
-	rm -rf $(OBJDIR) $(BINDIR)
+    @rm -rf $(OBJDIR) $(BINDIR)
+
+# Reguła .PHONY zapewnia, że clean będzie zawsze wykonane, nawet gdy istnieje plik o tej samej nazwie.
+.PHONY: clean
