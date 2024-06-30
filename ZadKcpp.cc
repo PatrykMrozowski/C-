@@ -200,15 +200,4 @@ bool czyParzystaTernary(int liczba) {
     return (liczba % 2 == 0) ? true : false;
 }
 
-int main() {
-    int liczba;
-    std::cout << "Podaj liczbę: ";
-    std::cin >> liczba;
-
-    std::cout << "Sprawdzenie za pomocą operacji bitowej: " << (czyParzystaBitwise(liczba) ? "parzysta" : "nieparzysta") << std::endl;
-    std::cout << "Sprawdzenie za pomocą operatora modulo: " << (czyParzystaModulo(liczba) ? "parzysta" : "nieparzysta") << std::endl;
-    std::cout << "Sprawdzenie za pomocą operatora warunkowego: " << (czyParzystaTernary(liczba) ? "parzysta" : "nieparzysta") << std::endl;
-
-    return 0;
-}
 }
