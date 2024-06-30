@@ -1,7 +1,7 @@
 CXX = g++
 CXXFLAGS = -Iinclude -std=c++11
 
-SRCDIR = src
+SRCDIR = ZadClassKcpp
 OBJDIR = obj
 BINDIR = bin
 
