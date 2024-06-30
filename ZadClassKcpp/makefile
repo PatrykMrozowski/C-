@@ -1,9 +1,9 @@
 CXX = g++
 CXXFLAGS = -Iinclude -std=c++11
 
-SRCDIR = ZadClassKcpp/src
-OBJDIR = ZadClassKcpp/obj
-BINDIR = ZadClassKcpp/bin
+SRCDIR = src
+OBJDIR = obj
+BINDIR = bin
 
 SOURCES = $(wildcard $(SRCDIR)/*.cpp)
 OBJECTS = $(SOURCES:$(SRCDIR)/%.cpp=$(OBJDIR)/%.o)
