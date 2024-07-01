@@ -7,7 +7,7 @@ void wyswietlMenu() {
     std::cout << "2. Zadanie 2.1: Operacje na stringu\n";
     std::cout << "3. Zadanie 3.1: Wyswietla  okreslony miesiace\n";
     std::cout << "4. Zadanie 4.1: Tworzy obiekt KviCar\n";
-    std::cout << "5. Zadanie 5.1: Napisz program sprawdzający czy liczba jest parzysta/nieparzysta";
+    std::cout << "5. Zadanie 5.1: sprawdza czy liczba jest parzysta/nieparzysta";
     std::cout << "0. Wyjscie\n";
 }
 
